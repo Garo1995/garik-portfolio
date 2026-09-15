@@ -661,13 +661,13 @@ h2{
     margin-top: 20px;
 }
 .contact__link {
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     border-bottom: 1px solid #bdbdb5;
-    font-size: 13px;
+    font-size: 15px;
     transition: border-color .2s ease;
 }
 .contact-text {
-    max-width: 500px;
+    max-width: 520px;
     margin-top: 25px;
     color: #70706a;
     font-size: 17px;
@@ -717,7 +717,12 @@ h2{
     display: flex;
     gap: 20px
 }
-
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+}
 
 
 
