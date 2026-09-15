@@ -176,36 +176,56 @@ const body = document.body;
 
 let scrollPosition = 0;
 
+function openMenu() {
+    scrollPosition = window.scrollY;
+    body.style.top = `-${scrollPosition}px`;
+
+    openMenuBtn.classList.add('active');
+    headMenu.classList.add('active');
+    body.classList.add('menu-open');
+}
+
+function closeMenu() {
+    openMenuBtn.classList.remove('active');
+    headMenu.classList.remove('active');
+    body.classList.remove('menu-open');
+
+    body.style.top = '';
+    window.scrollTo(0, scrollPosition);
+}
+
 openMenuBtn.addEventListener('click', () => {
     const isOpen = headMenu.classList.contains('active');
-
-    if (!isOpen) {
-        // запоминаем текущий скролл, чтобы вернуть его при закрытии
-        scrollPosition = window.scrollY;
-        body.style.top = `-${scrollPosition}px`;
-
-        openMenuBtn.classList.add('active');
-        headMenu.classList.add('active');
-        body.classList.add('menu-open');
-    } else {
-        openMenuBtn.classList.remove('active');
-        headMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-
-        // возвращаем скролл на место
-        body.style.top = '';
-        window.scrollTo(0, scrollPosition);
-    }
+    isOpen ? closeMenu() : openMenu();
 });
 
-// Закрытие меню по клику на пункт меню (по желанию)
+// Клик по пункту меню: закрываем меню и скроллим к блоку
 headMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        openMenuBtn.classList.remove('active');
-        headMenu.classList.remove('active');
-        body.classList.remove('menu-open');
-        body.style.top = '';
-        window.scrollTo(0, scrollPosition);
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+
+        // работаем только с якорными ссылками вида #id
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+
+            // сначала снимаем блокировку скролла (без scrollTo на старую позицию)
+            openMenuBtn.classList.remove('active');
+            headMenu.classList.remove('active');
+            body.classList.remove('menu-open');
+            body.style.top = '';
+            window.scrollTo(0, scrollPosition); // возвращаемся туда, где были
+
+            // ждём завершения анимации закрытия меню, затем скроллим к блоку
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 400); // должно совпадать с длительностью transition меню (0.4s)
+            }
+        } else {
+            // если это обычная ссылка на другую страницу — просто закрываем меню
+            closeMenu();
+        }
     });
 });
 
