@@ -278,7 +278,7 @@ h2{
     color: #171717
 }
 .nav__link{
-    font-weight: 500;
+    font-weight: 600;
 }
 .head-menu .contact-links{
     display: none;
@@ -384,7 +384,7 @@ h2{
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 60px;
     }
     .head-menu .contact-links {
@@ -393,11 +393,11 @@ h2{
     .nav a{
         color: #171717;
     }
-    .logo-menu{
+    .logo-menu {
         display: flex;
         position: absolute;
-        top: 20px;
-        left: 20px;
+        top: 22px;
+        left: 16px;
         width: 26px;
     }
     .topbar-contact {
