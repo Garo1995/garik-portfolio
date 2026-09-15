@@ -47,6 +47,10 @@ const translations = {
         cmsModx: 'Comfortable working with MODX websites, managing content and implementing front-end changes within the CMS.',
         cmsBitrix: 'Experience working with Bitrix administration and integrating front-end layouts and website changes into the CMS.',
         cmsOther: 'Able to quickly understand an existing admin panel and work with the tools required to maintain and develop a website.',
+        skills: 'Skills',
+        skillMarkup:'Markup & Styling',
+        skillScripting:'Scripting & Frameworks',
+        skillDesign:'Design & UI',
         contactKicker: 'Contact',
         contactTitle: 'Have a project in mind?',
         contactText: "Tell me what you're building, what you need and when you need it. I'll get back to you and we can discuss the details.",
@@ -103,6 +107,10 @@ const translations = {
         cmsModx: 'Умею работать с сайтами на MODX, управлять контентом и вносить необходимые Front-End изменения непосредственно в CMS.',
         cmsBitrix: 'Есть опыт работы с админкой Bitrix, интеграции готовой вёрстки и внесения необходимых изменений в сайт.',
         cmsOther: 'Быстро разбираюсь в существующей админке и могу работать с инструментами, необходимыми для поддержки и развития сайта.',
+        skills: 'Навыки',
+        skillMarkup:'Вёрстка и стилизация',
+        skillScripting:'Скрипты и фреймворки',
+        skillDesign:'Дизайн и интерфейсы',
         contactKicker: 'Контакты',
         contactTitle: 'Есть проект?',
         contactText: 'Расскажите, что вы создаёте, что нужно сделать и какие сроки. Я свяжусь с вами, чтобы обсудить детали.',
@@ -162,7 +170,44 @@ if (wrap && main) {
 
 
 
+const openMenuBtn = document.querySelector('.open-menu');
+const headMenu = document.querySelector('.head-menu');
+const body = document.body;
 
+let scrollPosition = 0;
+
+openMenuBtn.addEventListener('click', () => {
+    const isOpen = headMenu.classList.contains('active');
+
+    if (!isOpen) {
+        // запоминаем текущий скролл, чтобы вернуть его при закрытии
+        scrollPosition = window.scrollY;
+        body.style.top = `-${scrollPosition}px`;
+
+        openMenuBtn.classList.add('active');
+        headMenu.classList.add('active');
+        body.classList.add('menu-open');
+    } else {
+        openMenuBtn.classList.remove('active');
+        headMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+
+        // возвращаем скролл на место
+        body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+    }
+});
+
+// Закрытие меню по клику на пункт меню (по желанию)
+headMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        openMenuBtn.classList.remove('active');
+        headMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+    });
+});
 
 
 
@@ -180,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const isMobile = window.innerWidth <= 767;
 
         if (!isMobile) {
-            // Desktop — показываем все проекты и убираем кнопку
             projects.forEach(project => {
                 project.hidden = false;
             });
@@ -189,19 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Mobile
         if (isExpanded) {
             projects.forEach(project => {
                 project.hidden = false;
             });
 
-            moreProjects.hidden = true;
+            moreProjects.remove();
         } else {
             projects.forEach((project, index) => {
                 project.hidden = index >= 6;
             });
-
-            moreProjects.hidden = false;
         }
     };
 

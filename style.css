@@ -270,13 +270,150 @@ h2{
     display: flex;
     gap: 30px;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #666
 }
 
 .nav a:hover {
     color: #171717
 }
+.nav__link{
+    font-weight: 500;
+}
+.head-menu .contact-links{
+    display: none;
+}
+.head-menu .contact__links{
+    display: none;
+
+}
+.topbar-contact{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+
+
+.open-menu {
+    position: relative;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+}
+
+.open-menu span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #171717;
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.open-menu span:nth-child(1) {
+    top: 0;
+}
+.open-menu span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.open-menu span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Анимация бургера в крестик */
+.open-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.open-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+}
+.open-menu.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+.logo-menu{
+    display: none;
+}
+
+
+
+
+@media (max-width: 1020px){
+    .open-menu{
+        display: block;
+    }
+    .head-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        height: 100dvh; /* корректная высота на мобильных */
+        z-index: 1000;
+        background: #f4f4f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    }
+
+    .head-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        font-size: 18px;
+        margin-bottom: 60px;
+    }
+    .head-menu .contact-links {
+        display: flex;
+    }
+    .nav a{
+        color: #171717;
+    }
+    .logo-menu{
+        display: flex;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 26px;
+    }
+    .topbar-contact {
+        gap: 16px;
+    }
+    .head-menu .contact__links{
+        display: flex;
+
+    }
+}
+
+
+
+
+
+
 .call{
     display: flex;
     align-items: center;
@@ -518,7 +655,7 @@ h2{
 }
 
 .project-content {
-    padding: 20px 24px;
+    padding: 20px 20px;
     background: #deded9;
 }
 
@@ -853,6 +990,70 @@ h2{
 
 
 
+
+
+
+
+
+
+.skill-cols {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    border-top: 1px solid #deded9;
+
+}
+.skill-group{
+    padding-top: 24px;
+
+}
+.skill-group + .skill-group{
+    border-left: 1px solid #deded9;
+    padding-left: 50px;
+}
+.skill-group h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    font-weight: 700;
+
+    margin-bottom: 16px;
+}
+
+.skill-item {
+    margin-bottom: 14px;
+}
+
+.skill-item .row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #73736d;
+}
+
+.skill-item .row .name {
+    font-weight: 500;
+}
+
+.dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: silver;
+}
+
+.dot.on {
+    background: #171717;
+}
+
+
+
 @media (max-width: 1499px){
     .container {
         max-width: 1320px;
@@ -1006,6 +1207,9 @@ h2{
     .contact-title {
         font-size: 70px;
     }
+    .skill-group + .skill-group {
+        padding-left: 25px;
+    }
 }
 @media (max-width: 1020px) {
     h1 {
@@ -1120,7 +1324,18 @@ h2{
     .contact {
         padding: 80px 0 60px;
     }
-
+    .skill-cols {
+        grid-template-columns: 1fr 1fr;
+    }
+    .skill-group:nth-child(3){
+        border-left: unset;
+        border-top: 1px solid #deded9;
+        padding-left: 0;
+    }
+    .skill-group h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -1163,10 +1378,7 @@ h2{
         max-width: 474px;
     }
 
-    .nav {
-        gap: 22px;
-        font-size: 14px;
-    }
+
     .banner-side-title {
         font-size: 34px;
         line-height: 35px;
@@ -1300,6 +1512,20 @@ h2{
         margin-top: 14px;
         font-size: 14px;
         margin-bottom: 1px;
+    }
+
+    .skill-cols {
+        grid-template-columns: 1fr;
+        border-top: unset;
+    }
+    .skill-group {
+        border-top: 1px solid #deded9;
+        padding-bottom: 16px;
+    }
+    .skill-group + .skill-group {
+        padding-left: 0;
+        border-left: unset;
+
     }
 }
 
