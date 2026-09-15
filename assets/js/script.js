@@ -5,19 +5,22 @@ const translations = {
         navAbout: 'Experience',
         navTalk: "Let's talk",
         available: 'Available for new projects',
+        bannerTitle: 'I build websites',
         heroTitle: 'people remember.',
         heroText: '8+ years of experience · 700+ websites delivered. I build responsive, pixel-perfect websites from design to production.',
-        viewWork: 'View my work&nbsp; ↗',
+        viewWork: 'View my work&nbsp; ↘',
         contactMe: 'Contact me',
         quickTitle: 'I care about the details that make a website feel finished.',
         quickAbout: 'I have been working in web development for more than 8 years. During this time, I have delivered 700+ websites — from landing pages and corporate websites to dashboards, e-commerce and responsive interfaces.',
-        quickAbout2: 'My main focus is Front-End development: translating designs into accurate, responsive and maintainable interfaces. I can work independently, communicate directly with clients and take a project from the first task through to final delivery.',
+        quickAbout2: 'My main specialization is Front-End development: accurate, responsive implementation of designs with clean and maintainable code. I also work with WordPress and have experience developing with React and Next.js.',
+        quickAbout3: 'I can independently handle a project from start to finish, communicate directly with clients, and pay close attention to every detail along the way.',
         years: 'Years experience',
         sites: 'Websites delivered',
         endToEnd: 'Developer, end-to-end',
         workKicker: 'Selected work',
         workTitle: 'Recent projects',
         workDescription: "A selection of frontend and WordPress projects I've built for clients.",
+        showMore: 'Show more ↘',
         youparityDesc: 'Business website',
         kirpichDesc: 'E-commerce website',
         domistroyDesc: 'Construction company website',
@@ -58,19 +61,22 @@ const translations = {
         navAbout: 'Обо мне',
         navTalk: 'Связаться',
         available: 'Открыт для новых проектов',
+        bannerTitle: 'Я создаю сайты',
         heroTitle: 'которые запоминаются.',
         heroText: '8+ лет опыта · более 700 реализованных сайтов. Создаю адаптивные и pixel-perfect сайты — от дизайна до готового проекта.',
-        viewWork: 'Смотреть работы&nbsp; ↗',
+        viewWork: 'Смотреть работы&nbsp; ↘',
         contactMe: 'Связаться со мной',
         quickTitle: '8+ лет создаю сайты для реальных клиентов.',
         quickAbout: 'Я занимаюсь веб-разработкой более 8 лет. За это время реализовал более 700 сайтов — от лендингов и корпоративных сайтов до дашбордов, интернет-магазинов и адаптивных интерфейсов.',
-        quickAbout2: 'Моя основная специализация — Front-End разработка: точная, адаптивная и поддерживаемая в дальнейшем реализация дизайна. Могу самостоятельно вести проект, напрямую общаться с клиентом и довести задачу от начала до финального результата.',
+        quickAbout2: 'Моя основная специализация — Front-End разработка: точная и адаптивная реализация дизайна, чистый и поддерживаемый код. Также работаю с WordPress и имею опыт разработки на React и Next.js.',
+        quickAbout3: 'Могу самостоятельно вести проект от начала до финального результата, напрямую общаться с клиентом и внимательно работать над каждой деталью.',
         years: 'Лет опыта',
         sites: 'Сайтов реализовано',
         endToEnd: 'Разработка под ключ',
         workKicker: 'Избранные работы',
         workTitle: 'Последние проекты',
         workDescription: 'Подборка frontend-проектов и проектов на WordPress, которые я разработал для клиентов.',
+        showMore: 'Показать ещё ↘',
         youparityDesc: 'Сайт для бизнеса',
         kirpichDesc: 'Интернет-магазин',
         domistroyDesc: 'Сайт строительной компании',
@@ -127,7 +133,17 @@ setLang(localStorage.getItem('portfolio-lang') || 'en');
 
 
 
-
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+});
 
 
 
@@ -140,3 +156,38 @@ if (wrap && main) {
         wrap.classList.toggle('open');
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const projects = document.querySelectorAll('.projects .project');
+    const moreProjects = document.querySelector('.more-projects');
+
+    if (!projects.length || !moreProjects) return;
+
+    const initialCount = window.innerWidth <= 767 ? 6 : 18;
+
+    projects.forEach((project, index) => {
+        if (index >= initialCount) {
+            project.hidden = true;
+        }
+    });
+
+    moreProjects.addEventListener('click', () => {
+        projects.forEach(project => {
+            project.hidden = false;
+        });
+
+        moreProjects.remove();
+    });
+});

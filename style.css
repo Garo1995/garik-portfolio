@@ -176,16 +176,16 @@ body {
 
 
 h1{
-    font-size: 90px;
+    font-size: 86px;
     font-family: "Manrope";
     letter-spacing: -.065em;
-    line-height: 79px;
+    line-height: 77px;
 }
 h2{
     font-size: 56px;
     font-family: "Manrope";
     letter-spacing: -.065em;
-    line-height: 56px;
+    line-height: 1;
 }
 
 
@@ -209,7 +209,7 @@ h2{
     align-items: center;
     justify-content: space-between;
     height: 84px;
-
+    padding: 15px 0;
 }
 .brand {
     display: flex;
@@ -277,11 +277,11 @@ h2{
 }
 .banner-min{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 60px;
 }
 .banner-info{
-    max-width: 600px;
+    max-width: 630px;
     width: 100%;
 }
 .banner-photo{
@@ -309,7 +309,8 @@ h2{
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #37a66b
+    background: #37a66b;
+    margin-bottom: 1px;
 }
 
 .banner-title {
@@ -317,8 +318,9 @@ h2{
 
 }
 
-.banner-title span {
-    color: #85857f
+.title-color {
+    color: #85857f;
+    display: block;
 }
 
 .banner-text {
@@ -357,16 +359,17 @@ h2{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
+    min-height: 45px;
     padding: 0 21px;
     border-radius: 99px;
     font-size: 14px;
     font-weight: 700;
-    transition: .2s
+    transition: .3s;
+    cursor: pointer;
 }
 
 .button:hover {
-    transform: translateY(-2px)
+
 }
 
 .button-dark {
@@ -441,6 +444,8 @@ h2{
 }
 .section-head p{
     margin-top: 20px;
+    max-width: 500px;
+    width: 100%;
 }
 .section-kicker {
     margin-bottom: 9px
@@ -472,6 +477,13 @@ h2{
     transform: translateY(-5px);
     box-shadow: 0 18px 45px #14141412
 }
+.more-projects{
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 32px;
+}
 
 .project-image {
     height: 260px;
@@ -483,7 +495,9 @@ h2{
     width: 100%;
     height: 100%;
 }
-
+.project[hidden] {
+    display: none;
+}
 
 .project-content {
     padding: 20px 24px;
@@ -580,16 +594,16 @@ h2{
 .about-flex{
     display: flex;
     justify-content: space-between;
-    gap: 45px;
+    gap: 35px;
 }
 .about-compact-grid {
-    max-width: 564px;
+    max-width: 550px;
     width: 100% ;
 }
-.about-compact-photo{
+.about-compact-photo {
     display: flex;
-    margin-top: -70px;
-    margin-bottom: -60px;
+    margin-top: -42px;
+    margin-bottom: -50px;
 }
 .about-lead {
     font: 800 clamp(28px, 4vw, 46px)/1.12 "Manrope";
@@ -628,12 +642,7 @@ h2{
     border-top: 1px solid #deded9
 }
 
-.contact-inner {
-    display: grid;
-    grid-template-columns:1fr auto;
-    gap: 50px;
-    align-items: end
-}
+
 .contact-info{
     width: 100%;
     display: flex;
@@ -652,16 +661,18 @@ h2{
 
 .contact-title {
     font-size: 90px;
-    line-height: 94px;
+    line-height: 1;
+    text-align: center;
 }
 .contact__links {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
     margin-top: 20px;
+    margin-bottom: 24px;
 }
 .contact__link {
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     border-bottom: 1px solid #bdbdb5;
     font-size: 15px;
     transition: border-color .2s ease;
@@ -672,7 +683,6 @@ h2{
     color: #70706a;
     font-size: 17px;
     line-height: 1.65;
-    margin-bottom: 12px;
 }
 
 .contact-links {
@@ -823,54 +833,292 @@ h2{
 
 
 
+@media (max-width: 1499px){
+    .container {
+        max-width: 1320px;
+    }
+}
+@media (max-width: 1399px){
+    .topbar-min {
+        height: 76px;
+    }
+    .container {
+        max-width: 1260px;
+    }
 
+    h1 {
+        font-size: 80px;
+        line-height: 72px;
+    }
+    .eyebrow {
+        margin-bottom: 12px;
+    }
+    .banner-side-title {
+        font-size: 46px;
+        line-height: 47px;
+    }
+    .projects {
+        gap: 14px;
+    }
+    .banner-info {
+        max-width: 560px;
+    }
+}
 
-
-
-@media (max-width: 900px) {
+@media (max-width: 1299px){
+    h1 {
+        font-size: 65px;
+        line-height: 62px;
+    }
     .about-compact-grid {
-        grid-template-columns:1fr;
-        gap: 45px
+        max-width: 490px;
+    }
+    .banner-info {
+        max-width: 493px;
+    }
+    .about-compact-photo {
+        margin-top: -16px;
+        margin-bottom: -12px;
+    }
+    .banner-side-text {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+    .banner-side-title {
+        font-size: 44px;
+        line-height: 46px;
+    }
+    .project-image {
+        height: 220px;
+    }
+    .project-content {
+        padding: 18px 20px;
+    }
+    .service {
+        min-height: 230px;
+        padding: 24px;
+    }
+    .contact-title {
+        font-size: 80px;
     }
 
 
+}
+@media (max-width: 1199px){
+    .container {
+        padding: 0 16px;
+    }
 
+    .eyebrow, .section-kicker {
+        font-size: 11px;
+    }
+    h1 {
+        font-size: 56px;
+        line-height: 52px;
+    }
+    .banner-text {
+        margin-top: 15px;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+    .banner-actions {
+        margin-top: 20px;
+    }
+    .eyebrow {
+        margin-bottom: 7px;
+    }
+    .banner {
+        padding: 50px 0 50px;
+    }
+    .banner-tech span {
+        padding: 5px 9px;
+    }
+    .stat-number {
+        font-size: 34px;
+    }
+    .banner-side-text {
+        font-size: 16px;
+        line-height: 1.3;
+        margin-top: 10px;
+    }
+    .banner-stats {
+        margin-top: 24px;
+    }
+    .banner-side-title {
+        font-size: 40px;
+        line-height: 42px;
+        margin-bottom: 16px;
+    }
+    .stat {
+        padding: 20px 18px 20px 0;
+    }
+    .about-flex {
+        gap: 20px;
+    }
+    .stat + .stat {
+        padding-left: 12px;
+    }
+    .section {
+        padding: 70px 0;
+    }
+    .project-name {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 46px;
+    }
+    .project-image {
+        height: 192px;
+    }
+    .project-content {
+        padding: 16px 15px;
+    }
+    .service-title {
+        margin-top: 40px;
+        font: 800 22px "Manrope";
+        letter-spacing: -.045em;
+    }
+    .service {
+        min-height: 210px;
+        padding: 20px;
+    }
+
+    .contact-title {
+        font-size: 70px;
+    }
+}
+@media (max-width: 1020px) {
+    h1 {
+        font-size: 76px;
+        line-height: 72px;
+    }
+    .banner-min {
+        align-items: flex-start;
+        gap: 30px;
+        flex-direction: column;
+    }
+    .about-compact-grid {
+        display: none;
+    }
+    .banner-text {
+        max-width: 500px;
+        font-size: 17px;
+    }
+    .banner-tech span {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+    .banner {
+        padding: 35px 0 40px;
+    }
      .about-grid {
         grid-template-columns:1fr;
         gap: 45px
     }
+    .banner-info {
+        max-width: 580px;
+    }
 
-    .contact-inner {
-        grid-template-columns:1fr
+    .section {
+        padding: 60px 0;
+    }
+    .banner-side-text {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-top: 12px;
+    }
+    .banner-side {
+        max-width: 900px;
+    }
+    .banner-side-title {
+        max-width: 600px;
+        width: 100%;
+    }
+    .banner-photo {
+        margin-left: 0;
+    }
+    .topbar-min {
+        height: auto;
+    }
+
+    .contact-links {
+        gap: 16px;
+    }
+
+    .fab-wrap {
+        right: 18px;
+        bottom: 18px;
+    }
+    .fab-item {
+        width: 40px;
+        height: 40px;
+    }
+    .fab-item svg {
+        width: 18px;
+        height: 18px;
+    }
+    .fab-main {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fab-main .icon {
+        width: 20px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .project-image {
+        height: 222px;
+    }
+    .section-head {
+        margin-bottom: 24px;
+    }
+    .section-head p {
+        margin-top: 14px;
+    }
+    .contact-title {
+        font-size: 60px;
+    }
+    .footer {
+        padding: 20px 0;
+    }
+    .contact__links {
+        margin-top: 10px;
+    }
+    .contact-text {
+        max-width: 495px;
+        margin-top: 25px;
+        font-size: 16px;
+        line-height: 1.45;
+        margin-bottom: 12px;
+    }
+    .fab-wrap {
+        gap: 8px;
+    }
+    .contact {
+        padding: 80px 0 60px;
     }
 
 }
 
-@media (max-width: 700px) {
-    .topbar {
-        height: 70px
-    }
-
-    .nav {
-        display: none
-    }
+@media (max-width: 767px) {
 
 
 
-    .banner-title {
-        font-size: clamp(45px, 14vw, 70px)
-    }
 
     .banner-text {
         font-size: 17px
     }
-
-    .banner-stats, .projects, .services-grid {
-        grid-template-columns:1fr
+    h1 {
+        font-size: 64px;
+        line-height: 60px;
     }
 
+
     .section {
-        padding: 70px 0
+        padding: 55px 0
     }
 
     .section-head {
@@ -888,9 +1136,25 @@ h2{
     .service-title {
         margin-top: 40px
     }
+    .banner-title {
+        max-width: 474px;
+    }
 
-
-
+    .nav {
+        gap: 22px;
+        font-size: 14px;
+    }
+    .banner-side-title {
+        font-size: 34px;
+        line-height: 35px;
+        margin-bottom: 14px;
+    }
+    h2 {
+        font-size: 36px;
+    }
+    .projects {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 
 
     .contact {
@@ -901,4 +1165,153 @@ h2{
         align-items: flex-start;
         flex-direction: column
     }
+    .project {
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .project-image {
+        height: 260px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(1, 1fr);
+        border-radius: 16px;
+    }
+    .service {
+        min-height: auto;
+    }
+    .service-title {
+        font: 800 20px "Manrope";
+    }
+    .service-title {
+        margin-top: 30px;
+    }
+}
+@media (max-width: 575px) {
+   header .contact-links {
+        display: none;
+    }
+    .lang-btn {
+        padding: 6px 9px;
+        line-height: 12px;
+    }
+    h1 {
+        font-size: 46px;
+        line-height: 44px;
+    }
+    .banner-text {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    .banner-tech span {
+        padding: 4px 9px;
+        font-size: 12px;
+    }
+    .button {
+        min-height: 42px;
+        padding: 0 18px;
+        font-size: 13px;
+    }
+    .banner-side-title {
+        font-size: 26px;
+        line-height: 27px;
+        margin-bottom: 16px;
+    }
+    .stat:last-child {
+        display: none;
+    }
+    .stat + .stat {
+        border-right: unset;
+    }
+    .banner-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project {
+        max-width: 390px;
+        border-radius: 12px;
+    }
+    h2 {
+        font-size: 34px;
+    }
+    .contact-title {
+        font-size: 50px;
+        line-height: 1.2;
+    }
+    .contact__links {
+        gap: 16px;
+    }
+    .footer .container {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer__inner {
+        font-size: 13px;
+    }
+    .contact-text {
+        max-width: 380px;
+        margin-top: 25px;
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 5px;
+    }
+    .contact__link {
+        font-size: 14px;
+    }
+    .brand {
+        font: 700 17px "Manrope";
+    }
+    .contact {
+        padding: 60px 0 60px;
+    }
+    .project-tags {
+        margin-top: 10px;
+    }
+    .banner-tech {
+        gap: 6px;
+        margin-top: 20px;
+    }
+    .contact-text {
+        margin-top: 14px;
+        font-size: 14px;
+        margin-bottom: 1px;
+    }
+}
+
+@media (max-width: 470px) {
+    .banner-actions {
+        flex-direction: column;
+    }
+    .project-image {
+        height: 230px;
+    }
+}
+@media (max-width: 370px) {
+    .contact__links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-title {
+        font-size: 42px;
+    }
+    .project-content {
+        padding: 14px 12px;
+    }
+    .project-name {
+        font-size: 18px;
+    }
+    .project-image {
+        height: 180px;
+    }
+    .section-description {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 38px;
+        line-height: 38px;
+    }
+
 }
