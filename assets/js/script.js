@@ -8,7 +8,7 @@ const translations = {
         bannerTitle: 'I build websites',
         heroTitle: 'people remember.',
         heroText: '8+ years of experience · 700+ websites delivered. I build responsive, pixel-perfect websites from design to production.',
-        viewWork: 'View my work&nbsp; ↘',
+        viewWork: 'View my work&nbsp; <i class="icon-arrow-top"></i>',
         contactMe: 'Contact me',
         quickTitle: 'I care about the details that make a website feel finished.',
         quickAbout: 'I have been working in web development for more than 8 years. During this time, I have delivered 700+ websites — from landing pages and corporate websites to dashboards, e-commerce and responsive interfaces.',
@@ -20,7 +20,7 @@ const translations = {
         workKicker: 'Selected work',
         workTitle: 'Recent projects',
         workDescription: "A selection of frontend and WordPress projects I've built for clients.",
-        showMore: 'Show more ↘',
+        showMore: 'Show more <i class="icon-arrow-top"></i>',
         youparityDesc: 'Business website',
         kirpichDesc: 'E-commerce website',
         domistroyDesc: 'Construction company website',
@@ -64,7 +64,7 @@ const translations = {
         bannerTitle: 'Я создаю сайты',
         heroTitle: 'которые запоминаются.',
         heroText: '8+ лет опыта · более 700 реализованных сайтов. Создаю адаптивные и pixel-perfect сайты — от дизайна до готового проекта.',
-        viewWork: 'Смотреть работы&nbsp; ↘',
+        viewWork: 'Смотреть работы&nbsp; <i class="icon-arrow-top"></i>',
         contactMe: 'Связаться со мной',
         quickTitle: '8+ лет создаю сайты для реальных клиентов.',
         quickAbout: 'Я занимаюсь веб-разработкой более 8 лет. За это время реализовал более 700 сайтов — от лендингов и корпоративных сайтов до дашбордов, интернет-магазинов и адаптивных интерфейсов.',
@@ -76,7 +76,7 @@ const translations = {
         workKicker: 'Избранные работы',
         workTitle: 'Последние проекты',
         workDescription: 'Подборка frontend-проектов и проектов на WordPress, которые я разработал для клиентов.',
-        showMore: 'Показать ещё ↘',
+        showMore: 'Показать ещё <i class="icon-arrow-top"></i>',
         youparityDesc: 'Сайт для бизнеса',
         kirpichDesc: 'Интернет-магазин',
         domistroyDesc: 'Сайт строительной компании',
@@ -168,26 +168,49 @@ if (wrap && main) {
 
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const projects = document.querySelectorAll('.projects .project');
     const moreProjects = document.querySelector('.more-projects');
 
     if (!projects.length || !moreProjects) return;
 
-    const initialCount = window.innerWidth <= 767 ? 6 : 18;
+    let isExpanded = false;
 
-    projects.forEach((project, index) => {
-        if (index >= initialCount) {
-            project.hidden = true;
+    const updateProjects = () => {
+        const isMobile = window.innerWidth <= 767;
+
+        if (!isMobile) {
+            // Desktop — показываем все проекты и убираем кнопку
+            projects.forEach(project => {
+                project.hidden = false;
+            });
+
+            moreProjects.hidden = true;
+            return;
         }
-    });
+
+        // Mobile
+        if (isExpanded) {
+            projects.forEach(project => {
+                project.hidden = false;
+            });
+
+            moreProjects.hidden = true;
+        } else {
+            projects.forEach((project, index) => {
+                project.hidden = index >= 6;
+            });
+
+            moreProjects.hidden = false;
+        }
+    };
 
     moreProjects.addEventListener('click', () => {
-        projects.forEach(project => {
-            project.hidden = false;
-        });
-
-        moreProjects.remove();
+        isExpanded = true;
+        updateProjects();
     });
+
+    window.addEventListener('resize', updateProjects);
+
+    updateProjects();
 });

@@ -167,9 +167,22 @@ body {
 }
 
 
+.icon-arrow-top{
+    width: 15px;
+    height: 15px;
+    background-image: url(./assets/images/arrot-top.svg);
+    filter: invert(1);
+    background-size: cover;
+}
 
 
+.project-arrow {
+    width: 14px;
+    height: 14px;
+    background-image: url(./assets/images/icon-bottom.svg);
+    background-size: cover;
 
+}
 
 
 
@@ -302,7 +315,7 @@ h2{
     display: flex;
     gap: 9px;
     align-items: center;
-    margin-bottom: 25px
+    margin-bottom: 20px
 }
 
 .eyebrow-dot {
@@ -366,10 +379,11 @@ h2{
     font-weight: 700;
     transition: .3s;
     cursor: pointer;
+    gap: 5px;
 }
 
 .button:hover {
-
+    background: #343232;
 }
 
 .button-dark {
@@ -381,7 +395,11 @@ h2{
     border: 1px solid #d2d2cc;
     background: #fff
 }
-
+.button-light:hover{
+    border: 1px solid #171717;
+    background: #171717;
+    color: #ffffff;
+}
 .banner-side {
     max-width: 700px;
     width: 100%;
@@ -478,11 +496,11 @@ h2{
     box-shadow: 0 18px 45px #14141412
 }
 .more-projects{
-    display: flex;
+
     font-size: 16px;
     font-weight: 500;
-    justify-content: center;
     margin-top: 32px;
+    display: none;
 }
 
 .project-image {
@@ -515,9 +533,6 @@ h2{
     letter-spacing: -.04em;
 }
 
-.project-arrow {
-    font-size: 20px;
-}
 
 
 
@@ -672,10 +687,15 @@ h2{
     margin-bottom: 24px;
 }
 .contact__link {
-    padding-bottom: 1px;
     border-bottom: 1px solid #bdbdb5;
     font-size: 15px;
     transition: border-color .2s ease;
+    gap: 7px;
+    display: flex;
+    align-items: center;
+}
+.contact__link:hover{
+    border-bottom: 1px solid transparent;
 }
 .contact-text {
     max-width: 520px;
@@ -1132,7 +1152,10 @@ h2{
     .service {
         min-height: 210px
     }
-
+    .more-projects{
+        display: flex;
+        justify-content: center;
+    }
     .service-title {
         margin-top: 40px
     }
