@@ -279,6 +279,20 @@ h2{
 }
 .nav__link{
     font-weight: 600;
+    position: relative;
+}
+.nav__link:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #171717;
+    transition: 0.3s;
+}
+.nav__link:hover:before{
+    width: 100%;
 }
 .head-menu .contact-links{
     display: none;
