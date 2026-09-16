@@ -552,29 +552,28 @@ h2{
     color: #ffffff;
 }
 .banner-side {
-    max-width: 700px;
+    max-width: 760px;
     width: 100%;
 }
 
 .banner-side-title {
     margin-bottom: 24px;
-    font-size: 50px;
     font-weight: 700;
-    line-height: 50px;
+    font-size: 46px;
+    line-height: 47px;
 }
 .banner-side-text {
     color: #70706a;
     font-size: 18px;
-    line-height: 1.5;
-    margin-top: 15px;
-
+    line-height: 1.35;
+    margin-top: 13px;
 }
 
 .banner-stats {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     gap: 10px;
-    margin-top: 34px;
+    margin-top: 30px;
     border-top: 1px solid #dcdcd5;
     border-bottom: 1px solid #dcdcd5;
 }
@@ -631,7 +630,7 @@ h2{
 .projects {
     display: grid;
     grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap: 18px
+    gap: 16px
 }
 
 .project {
@@ -655,7 +654,7 @@ h2{
 }
 
 .project-image {
-    height: 260px;
+    height: 240px;
     overflow: hidden;
     background: #e9e9e5
 }
@@ -670,15 +669,19 @@ h2{
 
 .project-content {
     padding: 20px 20px;
-    background: #deded9;
+    background: #e5e5e2;
 }
 
 .project-top {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 12px;
+    align-items: center;
 }
-
+.project-top .project-arrow {
+    width: 18px;
+    height: 18px;
+}
 .project-name {
     font: 800 22px "Manrope";
     letter-spacing: -.04em;
@@ -721,7 +724,7 @@ h2{
 
 .service-number {
     color: #999993;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700
 }
 
@@ -763,13 +766,13 @@ h2{
     gap: 35px;
 }
 .about-compact-grid {
-    max-width: 550px;
+    max-width: 578px;
     width: 100% ;
 }
 .about-compact-photo {
     display: flex;
-    margin-top: -42px;
-    margin-bottom: -50px;
+    margin-top: -5px;
+    margin-bottom: -20px;
 }
 .about-lead {
     font: 800 clamp(28px, 4vw, 46px)/1.12 "Manrope";
@@ -844,6 +847,7 @@ h2{
     gap: 7px;
     display: flex;
     align-items: center;
+    font-weight: 500;
 }
 .contact__link:hover{
     border-bottom: 1px solid transparent;
@@ -869,6 +873,7 @@ h2{
 .contact-link svg{
     width: 100%;
     height: 100%;
+    transition: 0.3s;
 }
 
 .icon-color svg{
@@ -923,18 +928,10 @@ h2{
     align-items:center;
     gap:10px;
     z-index: 90;
-    animation: fab-pulse 3.5s ease-in-out infinite;
 
 }
-@keyframes fab-pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.06);
-    }
-}
-/* дополнительные кнопки */
+
+
 .fab-item{
     width:50px;
     height:50px;
@@ -981,8 +978,20 @@ h2{
     justify-content:center;
     cursor:pointer;
     position:relative;
+    animation: fab-pulse 2.7s ease-in-out infinite;
 }
+.open .fab-main{
+    animation: unset;
+}
+@keyframes fab-pulse {
 
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
 .fab-item img{
     width: 26px;
     height:26px;
@@ -1031,7 +1040,7 @@ h2{
 }
 .skill-group + .skill-group{
     border-left: 1px solid #deded9;
-    padding-left: 50px;
+    padding-left: 28px;
 }
 .skill-group h3 {
     font-size: 16px;
@@ -1061,17 +1070,24 @@ h2{
 
 .dots {
     display: flex;
-    gap: 4px;
 }
-
-.dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+.star-rating {
+    mask-image: url(./assets/images/star-rating.svg);
+    -webkit-mask-image: url(./assets/images/star-rating.svg);
     background: silver;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    transition: 0.3s;
 }
 
-.dot.on {
+.star-rating.on {
     background: #171717;
 }
 
@@ -1097,10 +1113,7 @@ h2{
     .eyebrow {
         margin-bottom: 12px;
     }
-    .banner-side-title {
-        font-size: 46px;
-        line-height: 47px;
-    }
+
     .projects {
         gap: 14px;
     }
@@ -1120,10 +1133,7 @@ h2{
     .banner-info {
         max-width: 493px;
     }
-    .about-compact-photo {
-        margin-top: -16px;
-        margin-bottom: -12px;
-    }
+
     .banner-side-text {
         font-size: 17px;
         line-height: 1.4;
@@ -1182,15 +1192,15 @@ h2{
     }
     .banner-side-text {
         font-size: 16px;
-        line-height: 1.3;
+        line-height: 1.4;
         margin-top: 10px;
     }
     .banner-stats {
         margin-top: 24px;
     }
     .banner-side-title {
-        font-size: 40px;
-        line-height: 42px;
+        font-size: 36px;
+        line-height: 38px;
         margin-bottom: 16px;
     }
     .stat {
@@ -1233,6 +1243,11 @@ h2{
     .skill-group + .skill-group {
         padding-left: 25px;
     }
+    .about-compact-grid {
+        max-width: 450px;
+    }
+
+
 }
 @media (max-width: 1020px) {
     h1 {
