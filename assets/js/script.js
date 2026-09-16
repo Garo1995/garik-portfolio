@@ -165,13 +165,19 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 
-
 const wrap = document.getElementById('fabWrap');
 const main = document.getElementById('fabMain');
 
 if (wrap && main) {
-    main.addEventListener('click', () => {
+    main.addEventListener('click', (e) => {
+        e.stopPropagation();
         wrap.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) {
+            wrap.classList.remove('open');
+        }
     });
 }
 
@@ -271,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
             moreProjects.remove();
         } else {
             projects.forEach((project, index) => {
-                project.hidden = index >= 6;
+                project.hidden = index >= 8;
             });
         }
     };
