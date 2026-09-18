@@ -559,13 +559,13 @@ h2{
 .banner-side-title {
     margin-bottom: 24px;
     font-weight: 700;
-    font-size: 46px;
-    line-height: 47px;
+    font-size: 41px;
+    line-height: 42px;
 }
 .banner-side-text {
-    color: #70706a;
-    font-size: 18px;
-    line-height: 1.35;
+    color: #2a2a28;
+    font-size: 17px;
+    line-height: 1.40;
     margin-top: 13px;
 }
 
@@ -771,8 +771,8 @@ h2{
 }
 .about-compact-photo {
     display: flex;
-    margin-top: -5px;
-    margin-bottom: -20px;
+    margin-top: -15px;
+    margin-bottom: -40px;
 }
 .about-lead {
     font: 800 clamp(28px, 4vw, 46px)/1.12 "Manrope";
@@ -1134,14 +1134,6 @@ h2{
         max-width: 493px;
     }
 
-    .banner-side-text {
-        font-size: 17px;
-        line-height: 1.4;
-    }
-    .banner-side-title {
-        font-size: 44px;
-        line-height: 46px;
-    }
     .project-image {
         height: 220px;
     }
@@ -1192,7 +1184,6 @@ h2{
     }
     .banner-side-text {
         font-size: 16px;
-        line-height: 1.4;
         margin-top: 10px;
     }
     .banner-stats {
@@ -1285,8 +1276,6 @@ h2{
         padding: 60px 0;
     }
     .banner-side-text {
-        font-size: 16px;
-        line-height: 1.4;
         margin-top: 12px;
     }
     .banner-side {
