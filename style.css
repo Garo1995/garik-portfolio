@@ -550,7 +550,7 @@ h2{
     color: #ffffff;
 }
 .banner-side {
-    max-width: 760px;
+    max-width: 860px;
     width: 100%;
 }
 
@@ -559,6 +559,8 @@ h2{
     font-weight: 700;
     font-size: 41px;
     line-height: 42px;
+    max-width: 760px;
+    width: 100%;
 }
 .banner-side-text {
     color: #2a2a28;
@@ -764,13 +766,15 @@ h2{
     gap: 35px;
 }
 .about-compact-grid {
-    max-width: 578px;
+    max-width: 400px;
     width: 100% ;
-}
-.about-compact-photo {
     display: flex;
-    margin-top: -15px;
-    margin-bottom: -40px;
+}
+.about-compact-grid img{
+    object-fit: cover;
+    border-radius: 20px;
+    width: 100%;
+    filter: grayscale(1);
 }
 .about-lead {
     font: 800 clamp(28px, 4vw, 46px)/1.12 "Manrope";
@@ -1125,9 +1129,7 @@ h2{
         font-size: 65px;
         line-height: 62px;
     }
-    .about-compact-grid {
-        max-width: 490px;
-    }
+
     .banner-info {
         max-width: 493px;
     }
@@ -1196,7 +1198,7 @@ h2{
         padding: 20px 18px 20px 0;
     }
     .about-flex {
-        gap: 20px;
+        gap: 30px;
     }
     .stat + .stat {
         padding-left: 12px;
@@ -1232,9 +1234,7 @@ h2{
     .skill-group + .skill-group {
         padding-left: 25px;
     }
-    .about-compact-grid {
-        max-width: 450px;
-    }
+
 
 
 }
@@ -1248,9 +1248,7 @@ h2{
         gap: 30px;
         flex-direction: column;
     }
-    .about-compact-grid {
-        display: none;
-    }
+
     .banner-text {
         max-width: 500px;
         font-size: 17px;
@@ -1289,7 +1287,9 @@ h2{
     .topbar-min {
         height: auto;
     }
-
+    .about-compact-grid{
+        display: none;
+    }
     .contact-links {
         gap: 16px;
     }
